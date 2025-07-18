@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>文字の入力</title>
+</head>
+<body>
+<form name="textBox1">
+シャツに醤油のシミができたときに落とすのに最適な野菜は？：<input type="text" name="txtb" value=""><br>
+    <p><input type="button" id="btnAdd" value="回答を送信" onclick="tbox1()"></p>
+</form>
+<script src="js.js" async></script>
+<script>
+//テキストボックスの文字を取得する
+function tbox1() {
+    var str1 = document.textBox1.txtb.value;
+    var hints = [
+        "不正解です。ヒント1：室町時代までは「おおね」という名前で親しまれていた。",
+        "不正解です。ヒント2：演技力のない役者のことをこの野菜を使って○○役者と表現します。",
+        "不正解です。ヒント3：漬物にするとたくあんになります。",
+        "不正解です。正解は大根でした。"
+    ];
+
+    if (str1 == "大根") {
+        alert("正解です");
+        i = 0; // カウンタをリセット
+    } else {
+        if (i < hints.length - 1) {
+            alert(hints[i]);
+        } else {
+            alert(hints[hints.length - 1]);
+        }
+        i++;
+    }
+}
+
+// テキストボックスの文字を操作する
+function clr() {
+    document.textBox1.txtb.value = "";
+}
+</script>
+</body>
+</html>
